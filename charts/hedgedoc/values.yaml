@@ -28,7 +28,7 @@ secret:
 
 service:
   port:
-    port: 3000
+    port: 80
 
 ingress:
   enabled: false
