@@ -16,7 +16,7 @@ secret:
 
 # See more environment variables in the hedgedoc documentation
 # https://github.com/linuxserver/docker-hedgedoc#parameters
-env:
+# env:
   # TZ: Europe/Amsterdam
   # PUID: "1000"
   # PGID: "1000"
