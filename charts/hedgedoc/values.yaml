@@ -19,6 +19,7 @@ secret:
 env:
   CMD_URL_ADDPORT: "true"
   CMD_DOMAIN: hedgedoc.westermanonline.com
+  PORT: 80
   # TZ: Europe/Amsterdam
   # PUID: "1000"
   # PGID: "1000"
