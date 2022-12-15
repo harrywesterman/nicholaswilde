@@ -16,32 +16,36 @@ secret: {}
 
 # See more environment variables in the hedgedoc documentation
 # https://github.com/linuxserver/docker-hedgedoc#parameters
-env: {}
-  # TZ:
-  # PUID: "1000"
-  # PGID: "1000"
-  # DB_USER: "hedgedoc"
-  # DB_HOST: "mariadb"
-  # DB_NAME: "hedgedoc"
-  # DB_PORT: "3306"
-
+env:
+  TZ: Europe/Amsterdam
+  PUID: "1000"
+  PGID: "1000"
+  DB_USER: "hedgedoc"
+  DB_HOST: "mariadb"
+  DB_NAME: "hedgedoc"
+  DB_PORT: "3306"
+  DB_PASS: "hedgedoc-pass"
+  
 service:
   port:
     port: 3000
 
 ingress:
-  enabled: false
+  enabled: true
 
 persistence:
   config:
-    enabled: false
+    enabled: true
     emptyDir: false
     mountPath: /config
+    storageClass: "longhorn"
+    accessMode: ReadWriteOnce
+    size: 5Gi
 
 # Enable mariadb
 # https://github.com/nicholaswilde/helm-charts/blob/main/charts/mariadb/values.yaml
 mariadb:
-  enabled: false
+  enabled: true
   secret:
     MYSQL_ROOT_PASSWORD: hedgedoc-pass
     MYSQL_PASSWORD: hedgedoc-pass
