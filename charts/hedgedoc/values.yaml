@@ -25,13 +25,13 @@ env:
   DB_NAME: "hedgedoc"
   DB_PORT: "3306"
   DB_PASS: "hedgedoc-pass"
-  
+
 service:
   port:
     port: 3000
 
 ingress:
-  enabled: true
+  enabled: false
 
 persistence:
   config:
