@@ -16,7 +16,8 @@ secret:
 
 # See more environment variables in the hedgedoc documentation
 # https://github.com/linuxserver/docker-hedgedoc#parameters
-# env:
+env:
+  CMD_URL_ADDPORT: "true"
   # TZ: Europe/Amsterdam
   # PUID: "1000"
   # PGID: "1000"
@@ -28,7 +29,7 @@ secret:
 
 service:
   port:
-    port: 3000
+    port: 80
 
 ingress:
   enabled: false
