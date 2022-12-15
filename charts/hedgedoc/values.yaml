@@ -18,6 +18,7 @@ secret:
 # https://github.com/linuxserver/docker-hedgedoc#parameters
 env:
   CMD_URL_ADDPORT: "true"
+  CMD_DOMAIN: hedgedoc.westermanonline.com
   # TZ: Europe/Amsterdam
   # PUID: "1000"
   # PGID: "1000"
