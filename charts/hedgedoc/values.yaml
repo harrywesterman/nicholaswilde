@@ -17,7 +17,6 @@ secret:
 # See more environment variables in the hedgedoc documentation
 # https://github.com/linuxserver/docker-hedgedoc#parameters
 env:
-  # CMD_URL_ADDPORT: true
   CMD_DOMAIN: hedgedoc.westermanonline.com
   CMD_PROTOCOL_USESSL: "false"
   CMD_PORT: "80"
