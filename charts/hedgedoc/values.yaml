@@ -21,6 +21,7 @@ env:
   CMD_PROTOCOL_USESSL: "false"
   CMD_PORT: "80"
   CMD_ALLOW_EMAIL_REGISTER: "true"
+  CMD_DB_URL: mysql://hedgedoc:hedgedoc-pass@template-mariadb:3306/hedgedoc
   TZ: Europe/Amsterdam
   PUID: "911"
   PGID: "911"
@@ -53,7 +54,6 @@ persistence:
 # https://github.com/nicholaswilde/helm-charts/blob/main/charts/mariadb/values.yaml
 mariadb:
   enabled: true
-  # secret:
   secret:
     MYSQL_ROOT_PASSWORD: hedgedoc-pass
     MYSQL_PASSWORD: hedgedoc-pass
