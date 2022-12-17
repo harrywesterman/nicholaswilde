@@ -17,10 +17,10 @@ secret:
 # See more environment variables in the hedgedoc documentation
 # https://github.com/linuxserver/docker-hedgedoc#parameters
 env:
-  CMD_URL_ADDPORT: "true"
+  CMD_URL_ADDPORT: true
   CMD_DOMAIN: hedgedoc.westermanonline.com
   PORT: 80
-  # TZ: Europe/Amsterdam
+  TZ: Europe/Amsterdam
   # PUID: "1000"
   # PGID: "1000"
   # DB_USER: "hedgedoc"
@@ -42,7 +42,7 @@ persistence:
     emptyDir: false
     mountPath: /config
     storageClass: "longhorn"
-    accessMode: ReadWriteOnce
+    accessMode: ReadWriteMany
     size: 5Gi
 
 # Enable mariadb
@@ -56,3 +56,11 @@ mariadb:
     MYSQL_USER: hedgedoc
     MYSQL_DATABASE: hedgedoc
   fullnameOverride: template-mariadb
+  persistence:
+    config:
+      enabled: true
+      emptyDir: false
+      mountPath: /config
+      storageClass: "longhorn"
+      accessMode: ReadWriteMany
+      size: 5Gi    

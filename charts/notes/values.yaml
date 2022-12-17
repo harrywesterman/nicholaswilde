@@ -12,7 +12,7 @@ image:
   tag: "version-ee287b9"
 
 env: {}
-  # TZ: "America/Los_Angeles"
+  # TZ: "Europe/Amsterdam"
   # PUID: "1000"
   # PGID: "1000"
 
@@ -25,8 +25,11 @@ ingress:
 
 persistence:
   data:
-    enabled: false
+    enabled: true
     emptyDir: false
     mountPath: /data
     accessMode: ReadWriteOnce
     size: 1Gi
+    storageClass: "longhorn"
+
+
