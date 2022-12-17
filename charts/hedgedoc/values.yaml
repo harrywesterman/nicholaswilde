@@ -9,32 +9,37 @@
 image:
   repository: ghcr.io/linuxserver/hedgedoc
   pullPolicy: IfNotPresent
-  tag: "version-1.9.0"
-
+#  tag: "version-1.9.0"
+  tag: "latest"
 secret: 
   DB_PASS: "hedgedoc-pass"
 
 # See more environment variables in the hedgedoc documentation
 # https://github.com/linuxserver/docker-hedgedoc#parameters
 env:
-  CMD_URL_ADDPORT: true
+  # CMD_URL_ADDPORT: true
   CMD_DOMAIN: hedgedoc.westermanonline.com
-  PORT: 80
+  CMD_PROTOCOL_USESSL: "false"
+  CMD_PORT: "80"
+  CMD_ALLOW_EMAIL_REGISTER: "true"
   TZ: Europe/Amsterdam
-  # PUID: "1000"
-  # PGID: "1000"
-  # DB_USER: "hedgedoc"
-  # DB_HOST: "mariadb"
-  # DB_NAME: "hedgedoc"
-  # DB_PORT: "3306"
-
+  PUID: "911"
+  PGID: "911"
 
 service:
-  port:
-    port: 3000
+ port:
+   port: 80
 
 ingress:
   enabled: false
+
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
 
 persistence:
   config:
@@ -42,13 +47,14 @@ persistence:
     emptyDir: false
     mountPath: /config
     storageClass: "longhorn"
-    accessMode: ReadWriteMany
+    accessMode: ReadWriteOnce
     size: 5Gi
 
 # Enable mariadb
 # https://github.com/nicholaswilde/helm-charts/blob/main/charts/mariadb/values.yaml
 mariadb:
   enabled: true
+  # secret:
   secret:
     MYSQL_ROOT_PASSWORD: hedgedoc-pass
     MYSQL_PASSWORD: hedgedoc-pass
@@ -62,5 +68,5 @@ mariadb:
       emptyDir: false
       mountPath: /config
       storageClass: "longhorn"
-      accessMode: ReadWriteMany
-      size: 5Gi    
+      accessMode: ReadWriteOnce
+      size: 5Gi
