@@ -21,10 +21,10 @@ service:
     port: 80
 
 ingress:
-  enabled: false
+  enabled: true
 
 persistence:
   config:
-    enabled: false
+    enabled: true
     emptyDir: false
     mountPath: /config
