@@ -25,6 +25,6 @@ ingress:
 
 persistence:
   config:
-    enabled: true
+    enabled: false
     emptyDir: false
     mountPath: /config
