@@ -28,3 +28,5 @@ persistence:
     enabled: true
     emptyDir: false
     mountPath: /config
+    accessmode: ReadWriteMany
+    storageClass: "longhorn"
